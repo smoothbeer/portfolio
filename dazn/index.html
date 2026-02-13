@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAZN — Raw Sport</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">Raw Sport</h1>
+    <span class="subtitle">Brand Platform</span>
+  </td>
+  <th>Client</th>
+  <td class="width-fit">DAZN</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Art Direction, Copywriting</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">2018</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+
+
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#work">The Work</a></li>
+<li><a href="#system">Design System</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul>
+
+<figure>
+  <img src="dazn1.jpg" alt="DAZN — Raw Sport brand campaign">
+</figure>
+
+<h2 id="overview">Overview</h2>
+
+<p>
+  Global platform launch for <strong>DAZN</strong>, the
+  sports streaming service. The brief was to establish the
+  brand around a single idea — Raw Sport — and roll it out
+  across every touchpoint: broadcast idents, fight promos,
+  social content, and outdoor campaigns in markets worldwide.
+</p>
+
+<p>
+  Part of a core creative team at Dentsu McGarryBowen, I
+  worked across concept, art direction, and copy — helping
+  define the visual language and editorial tone that gave the
+  platform its identity.
+</p>
+
+<hr>
+
+<h2 id="work">The Work</h2>
+
+<p>
+  The output spanned 360 — broadcast, social, OOH, and
+  print — across global markets. In any given week the team
+  would be cutting fight promos, building season-launch
+  campaigns, and producing platform idents simultaneously.
+</p>
+
+<figure>
+  <div class="embed">
+    <iframe src="https://player.vimeo.com/video/514456829?title=0&byline=0&portrait=0" allowfullscreen></iframe>
+  </div>
+</figure>
+
+<figure>
+  <img src="dazn5.jpg" alt="DAZN social content — fight promos, athlete features, and derby graphics">
+  <figcaption>Social content across fight promos, athlete features, and matchday graphics.</figcaption>
+</figure>
+
+<figure>
+  <div class="embed">
+    <iframe src="https://player.vimeo.com/video/467675464?title=0&byline=0&portrait=0" allowfullscreen></iframe>
+  </div>
+</figure>
+
+<figure>
+  <img src="dazn4.gif" alt="DAZN broadcast motion graphics">
+  <figcaption>Broadcast motion — idents and programme packaging.</figcaption>
+</figure>
+
+<figure>
+  <div class="embed">
+    <iframe src="https://player.vimeo.com/video/468075278?title=0&byline=0&portrait=0" allowfullscreen></iframe>
+  </div>
+</figure>
+
+<figure>
+  <img src="dazn7.jpg" alt="DAZN outdoor campaign — Tokyo train station">
+  <figcaption>OOH takeover, Tokyo.</figcaption>
+</figure>
+
+<figure>
+  <img src="dazn8.jpg" alt="DAZN outdoor campaign — Piccadilly Circus, London">
+  <figcaption>OOH activation, Piccadilly Circus.</figcaption>
+</figure>
+
+<figure>
+  <div class="embed">
+    <iframe src="https://player.vimeo.com/video/468111521?title=0&byline=0&portrait=0" allowfullscreen></iframe>
+  </div>
+</figure>
+
+<details id="system">
+<summary>Design System</summary>
+
+<p>
+  The visual identity was built as a toolkit — a system
+  flexible enough to work across sports, markets, and
+  formats while keeping the brand unmistakable. Developed
+  alongside the DAZN in-house team and the Dentsu creative
+  department, it gave local teams the tools to produce
+  on-brand content at speed.
+</p>
+
+<figure>
+  <img src="dazn9.png" alt="DAZN campaign wall — breadth of creative output">
+  <figcaption>Studio wall showing the range of output across the campaign.</figcaption>
+</figure>
+</details>
+
+
+<hr>
+
+<details id="credits">
+<summary>Credits</summary>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td>Art Direction, Copywriting</td>
+    <td>Lukeabc</td>
+  </tr>
+  <tr>
+    <td>Creative Direction</td>
+    <td>Angus Macadam, Joe Koprowski</td>
+  </tr>
+  <tr>
+    <td>Creative Direction (DAZN)</td>
+    <td>Toby, Stu</td>
+  </tr>
+  <tr>
+    <td>Agency</td>
+    <td>Dentsu McGarryBowen</td>
+  </tr>
+</table>
+</details>
+
+
+
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">CV</a></li>
+</ul>
+
+<script>
+function snapToGrid() {
+  var lh = parseFloat(getComputedStyle(document.body).lineHeight);
+  if (!lh) return;
+  document.querySelectorAll('img, video').forEach(function(el) {
+    el.style.paddingBottom = '';
+    var h = el.getBoundingClientRect().height;
+    if (h <= 0) return;
+    var r = h % lh;
+    if (r > 0.5 && (lh - r) > 0.5)
+      el.style.paddingBottom = (lh - r) + 'px';
+  });
+}
+window.addEventListener('load', snapToGrid);
+window.addEventListener('resize', snapToGrid);
+
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>

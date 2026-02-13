@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moodboards</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">Moodboards</h1>
+    <span class="subtitle">Visual Research &amp; Art Direction</span>
+  </td>
+  <th>Format</th>
+  <td class="width-fit">Digital</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Art Direction, Curation</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">—</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+
+
+
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>
+  Starting points, art direction, visual thinking.
+  Some of these became real projects. Some didn't.
+</p>
+
+<hr>
+
+<figure>
+  <img src="moodboard1.png" alt="Moodboard — retro gaming, Game Boy, Tomb Raider, Pokémon, WordArt, nostalgia">
+</figure>
+
+<figure>
+  <img src="moodboard2.png" alt="Moodboard — Y2K digital, Enter the Void, glitch, vaporwave, retro interfaces">
+</figure>
+
+<figure>
+  <img src="moodboard3.png" alt="Moodboard — jewellery, street fashion, gold chains, fairground, bold portraiture">
+</figure>
+
+<figure>
+  <img src="moodboard4.png" alt="Moodboard — insect jewellery, fisheye lens, editorial fashion, supermarket">
+</figure>
+
+<figure>
+  <img src="moodboard5.png" alt="Moodboard — watches, Rolex, UMWELT, 3D renders, surreal digital">
+</figure>
+
+<figure>
+  <img src="moodboard6.png" alt="Moodboard — abstract digital, bioluminescent textures, neon plasma, liquid fire">
+</figure>
+
+<figure>
+  <img src="moodboard7.png" alt="Moodboard — chrome wheels, custom alloys, muscle cars, automotive culture">
+</figure>
+
+<figure>
+  <img src="moodboard8.png" alt="Moodboard — jewellery, accessories, street style, diverse casting, editorial">
+</figure>
+
+<figure>
+  <img src="moodboard9.png" alt="Moodboard — gold rings, hands, minimal jewellery styling">
+</figure>
+
+<figure>
+  <img src="moodboard10.png" alt="Moodboard — typography, Neue Montreal, Brut, typeface research">
+</figure>
+
+<figure>
+  <img src="moodboard11.png" alt="Moodboard — branding, Dior, Adidas, Landor, logotypes, graphic design">
+</figure>
+
+<figure>
+  <img src="moodboard12.png" alt="Moodboard — Tarantino, film titles, Pulp Fiction, Kill Bill, Django, Reservoir Dogs, Hateful Eight">
+</figure>
+
+<figure>
+  <img src="moodboard13.png" alt="Moodboard — gold rings, chains, signet rings, Mike Tyson, Conor McGregor, jewellery, bold accessories">
+</figure>
+
+<hr>
+
+<details id="credits">
+<summary>Credits</summary>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td>Art Direction, Curation</td>
+    <td>Lukeabc</td>
+  </tr>
+</table>
+</details>
+
+
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">CV</a></li>
+</ul>
+
+<script>
+function snapToGrid() {
+  var lh = parseFloat(getComputedStyle(document.body).lineHeight);
+  if (!lh) return;
+  document.querySelectorAll('img, video').forEach(function(el) {
+    el.style.paddingBottom = '';
+    var h = el.getBoundingClientRect().height;
+    if (h <= 0) return;
+    var r = h % lh;
+    if (r > 0.5 && (lh - r) > 0.5)
+      el.style.paddingBottom = (lh - r) + 'px';
+  });
+}
+window.addEventListener('load', snapToGrid);
+window.addEventListener('resize', snapToGrid);
+
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>

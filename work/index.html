@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lukeabc — Selected Work</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+<style>
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1ch;
+  margin-bottom: var(--line-height);
+}
+.filters > * {
+  margin-top: 0;
+}
+.filters .filter.active {
+  background: var(--text-color);
+  color: var(--background-color);
+}
+</style>
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">Lukeabc</h1>
+    <span class="subtitle">Ideas, art, design and technology</span>
+  </td>
+  <th>Date</th>
+  <td class="width-min" id="live-date"></td>
+</tr>
+<tr>
+  <th>Time</th>
+  <td class="width-min" id="live-time"></td>
+</tr>
+<tr>
+  <th>Contact</th>
+  <td class="width-auto"><a href="../contact/index.html">Email</a></td>
+  <th>Location</th>
+  <td class="width-min">UK</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+
+
+
+
+<h2>Selected Work</h2>
+
+<nav class="filters">
+  <a href="#" class="btn filter active" data-filter="all">All</a>
+  <a href="#" class="btn filter" data-filter="art-direction">Art Direction</a>
+  <a href="#" class="btn filter" data-filter="copywriting">Copywriting</a>
+  <a href="#" class="btn filter" data-filter="design">Design</a>
+  <a href="#" class="btn filter" data-filter="art">Art</a>
+  <a href="#" class="btn filter" data-filter="code">Code</a>
+  <a href="#" class="btn filter" data-filter="illustration">Illustration</a>
+  <a href="#" class="btn filter" data-filter="creative-direction">Creative Direction</a>
+  <a href="#" class="btn filter" data-filter="direction">Direction</a>
+  <a href="#" class="btn filter" data-filter="curation">Curation</a>
+</nav>
+
+<table id="work">
+  <tr>
+    <th>Project</th>
+    <th>Discipline</th>
+    <th>Date</th>
+  </tr>
+  <tr data-disciplines="art,code">
+    <td><a href="../orb/index.html">The Orb Project</a></td>
+    <td>Art, Code</td>
+    <td>2026</td>
+  </tr>
+  <tr data-disciplines="art-direction,code,design">
+    <td><a href="../sticker-book/index.html">Sticker Book</a></td>
+    <td>Art Direction, Code, Design</td>
+    <td>2026</td>
+  </tr>
+  <tr data-disciplines="art-direction,design">
+    <td><a href="../btc.art/index.html">BTC.ART</a></td>
+    <td>Art Direction, Design</td>
+    <td>2025</td>
+  </tr>
+  <tr data-disciplines="art-direction,design">
+    <td><a href="../ogs/index.html">The OGs</a></td>
+    <td>Art Direction, Design</td>
+    <td>2025</td>
+  </tr>
+  <tr data-disciplines="art-direction,design">
+    <td><a href="../paralax/index.html">FAR</a></td>
+    <td>Art Direction, Design</td>
+    <td>2024</td>
+  </tr>
+  <tr data-disciplines="creative-direction">
+    <td><a href="../lobsters/index.html">Lobsters</a></td>
+    <td>Creative Direction</td>
+    <td>2023</td>
+  </tr>
+  <tr data-disciplines="art">
+    <td><a href="../hbr/index.html">If You Look Hard Enough</a></td>
+    <td>Art</td>
+    <td>2022</td>
+  </tr>
+  <tr data-disciplines="art-direction,copywriting">
+    <td><a href="../goal/index.html">This Is Everything</a></td>
+    <td>Art Direction, Copywriting</td>
+    <td>2021</td>
+  </tr>
+  <tr data-disciplines="art,creative-direction">
+    <td><a href="../thingdoms/index.html">Thingdoms</a></td>
+    <td>Art, Creative Direction</td>
+    <td>2021</td>
+  </tr>
+  <tr data-disciplines="copywriting">
+    <td><a href="../nike/index.html">Speed You Can't Catch</a></td>
+    <td>Copywriting</td>
+    <td>2019</td>
+  </tr>
+  <tr data-disciplines="art-direction,copywriting">
+    <td><a href="../voco/index.html">Stay Interesting</a></td>
+    <td>Art Direction, Copywriting</td>
+    <td>2019</td>
+  </tr>
+  <tr data-disciplines="art-direction,copywriting">
+    <td><a href="../dazn/index.html">Raw Sport</a></td>
+    <td>Art Direction, Copywriting</td>
+    <td>2018</td>
+  </tr>
+  <tr data-disciplines="direction">
+    <td><a href="../Samsonite/index.html">Samsonite</a></td>
+    <td>Direction</td>
+    <td>2017</td>
+  </tr>
+  <tr data-disciplines="art-direction,direction">
+    <td><a href="../skaters/index.html">Rock and Roll Bye Bye</a></td>
+    <td>Art Direction, Direction</td>
+    <td>2016</td>
+  </tr>
+  <tr data-disciplines="art-direction,curation,design">
+    <td><a href="../kanye/index.html">Things and Stuff</a></td>
+    <td>Art Direction, Curation, Design</td>
+    <td>2016</td>
+  </tr>
+  <tr data-disciplines="art-direction">
+    <td><a href="../honda/index.html">Perfect Fit Garage</a></td>
+    <td>Art Direction</td>
+    <td>2015</td>
+  </tr>
+  <tr data-disciplines="design">
+    <td><a href="../wuthering heights/index.html">Little Book</a></td>
+    <td>Design</td>
+    <td>2014</td>
+  </tr>
+  <tr data-disciplines="design,illustration">
+    <td><a href="../bjm/index.html">Brian Jonestown Massacre</a></td>
+    <td>Design, Illustration</td>
+    <td>2014</td>
+  </tr>
+  <tr data-disciplines="art-direction">
+    <td><a href="../irn-bru/index.html">Christmas Card</a></td>
+    <td>Art Direction</td>
+    <td>2013</td>
+  </tr>
+  <tr data-disciplines="art,illustration">
+    <td><a href="../selected works/index.html">Selected Works</a></td>
+    <td>Art, Illustration</td>
+    <td>—</td>
+  </tr>
+  <tr data-disciplines="art-direction,curation">
+    <td><a href="../moodboards/index.html">Moodboards</a></td>
+    <td>Art Direction, Curation</td>
+    <td>—</td>
+  </tr>
+</table>
+
+
+
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">CV</a></li>
+</ul>
+
+<script>
+// Filter
+document.querySelectorAll('.filter').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelectorAll('.filter').forEach(function(b) { b.classList.remove('active'); });
+    this.classList.add('active');
+    var filter = this.getAttribute('data-filter');
+    document.querySelectorAll('#work tr[data-disciplines]').forEach(function(row) {
+      if (filter === 'all') {
+        row.style.display = '';
+      } else {
+        var d = row.getAttribute('data-disciplines').split(',');
+        row.style.display = d.indexOf(filter) !== -1 ? '' : 'none';
+      }
+    });
+  });
+});
+
+// Toggles
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+
+// Live clock
+function updateClock() {
+  var now = new Date();
+  var d = document.getElementById('live-date');
+  var t = document.getElementById('live-time');
+  if (d) d.textContent = now.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  if (t) t.textContent = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+}
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>

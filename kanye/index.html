@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Things and Stuff — Kanye Tweets Zine</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">Things and Stuff</h1>
+    <span class="subtitle">Lo-fi tweet archive, photocopied &amp; hand-bound in NYC</span>
+  </td>
+  <th>Format</th>
+  <td class="width-fit">Zine</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Art Direction, Curation, Design</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">2016</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+
+
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#spreads">Inside</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul>
+
+<figure>
+  <img src="k1.jpeg" alt="Things and Stuff — zine cover with high-contrast mouth close-up, hand-drawn title, pink thread binding">
+</figure>
+
+<h2 id="overview">Overview</h2>
+
+<p>
+  A lo-fi zine archiving Kanye West's tweets from January
+  to March 2016 — right around the <em>Life of Pablo</em>
+  rollout. Photocopied, hand-bound with pink thread,
+  and produced in a single run.
+</p>
+
+<p>
+  Made at <strong>8 Ball Community</strong>, an artist
+  collective operating out of a basement in Soho, NYC.
+  Part zine library, part radio station, part public access
+  studio — a space where anyone could walk in, use the
+  tools, and publish something. I was living in New York
+  at the time and started making zines to learn the form
+  and contribute to the collective's output.
+</p>
+
+<p>
+  This was pre-controversy Kanye. The tweets read as
+  stream-of-consciousness dispatches — album title changes,
+  Madison Square Garden sellouts, "I hope you have a nice
+  weekend." Collected and printed, they become an accidental
+  time capsule of a specific moment in internet culture.
+</p>
+
+<table>
+  <tr>
+    <th>Format</th>
+    <th>Detail</th>
+  </tr>
+  <tr>
+    <td>Medium</td>
+    <td>Photocopied zine, pink thread binding</td>
+  </tr>
+  <tr>
+    <td>Content</td>
+    <td>Tweets from @kanyewest, Jan–Mar 2016</td>
+  </tr>
+  <tr>
+    <td>Made at</td>
+    <td>8 Ball Community, 1 E Broadway, NYC</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2 id="spreads">Inside</h2>
+
+<p>
+  Tweet screenshots cut and scattered over photocopied
+  imagery — Yeezus-era press shots, album artwork,
+  family photos. The collage treatment matches the
+  tone of the tweets themselves: raw, unfiltered,
+  jumping between subjects with no transition.
+</p>
+
+<figure>
+  <img src="k2.jpeg" alt="Inside spread — introduction page with 8 Ball logo and first tweet collage">
+  <figcaption>Opening spread. Credits and the first batch of tweets.</figcaption>
+</figure>
+
+<figure>
+  <img src="k3.jpeg" alt="Inside spread — tweets about WAVES, Madison Square Garden, and winter coats">
+</figure>
+
+<figure>
+  <img src="k4.jpeg" alt="Inside spread — I'm not a rapper, I wanted the world to know my struggle">
+</figure>
+
+<figure>
+  <img src="k5.jpeg" alt="Inside spread — The Devil can't stop us, All positive energy">
+</figure>
+
+
+<hr>
+
+<details id="credits">
+<summary>Credits</summary>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td>Art Direction, Curation, Design</td>
+    <td>Lukeabc</td>
+  </tr>
+  <tr>
+    <td>Produced at</td>
+    <td>8 Ball Community, NYC</td>
+  </tr>
+  <tr>
+    <td>Year</td>
+    <td>2016</td>
+  </tr>
+</table>
+</details>
+
+
+
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">CV</a></li>
+</ul>
+
+<script>
+function snapToGrid() {
+  var lh = parseFloat(getComputedStyle(document.body).lineHeight);
+  if (!lh) return;
+  document.querySelectorAll('img, video').forEach(function(el) {
+    el.style.paddingBottom = '';
+    var h = el.getBoundingClientRect().height;
+    if (h <= 0) return;
+    var r = h % lh;
+    if (r > 0.5 && (lh - r) > 0.5)
+      el.style.paddingBottom = (lh - r) + 'px';
+  });
+}
+window.addEventListener('load', snapToGrid);
+window.addEventListener('resize', snapToGrid);
+
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>

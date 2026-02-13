@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brian Jonestown Massacre</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">Brian Jonestown Massacre</h1>
+    <span class="subtitle">Various tour posters</span>
+  </td>
+  <th>Format</th>
+  <td class="width-fit">Poster</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Design, Illustration</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">2014</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+
+
+
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul>
+
+<div class="grid">
+  <img src="amsterdam.jpg" alt="Brian Jonestown Massacre — Amsterdam">
+  <img src="malmo.jpg" alt="Brian Jonestown Massacre — Malmö">
+  <img src="barcelona.jpg" alt="Brian Jonestown Massacre — Barcelona">
+  <img src="paris.jpg" alt="Brian Jonestown Massacre — Paris">
+</div>
+
+<h2 id="overview">Overview</h2>
+
+<p>
+  A series of gig posters designed for Brian Jonestown Massacre's 2014 European tour. Each poster takes a completely different visual approach to reflect the character of the city it was made for, while the hand-lettering ties the series together.
+</p>
+
+<h2>Amsterdam</h2>
+<p>Melkweg, June 2014. A dancing figure built from a repeating square pattern, black and white.</p>
+
+<figure>
+  <img src="amsterdam.jpg" alt="Brian Jonestown Massacre — Amsterdam, Melkweg">
+</figure>
+
+<h2>Malmö</h2>
+<p>Babel, June 2014. Architectural perspective in chalk on black, with the type built into the structure of the building.</p>
+
+<figure>
+  <img src="malmo.jpg" alt="Brian Jonestown Massacre — Malmö, Babel">
+</figure>
+
+<h2>Barcelona</h2>
+<p>Apolo, May 2014. Hand-lettered type set within a stained-glass composition of interlocking colour planes.</p>
+
+<figure>
+  <img src="barcelona.jpg" alt="Brian Jonestown Massacre — Barcelona, Apolo">
+</figure>
+
+<h2>Paris</h2>
+<p>Bataclan, May 2014. Bold typographic poster with the text repeated and layered over a photographic brick texture.</p>
+
+<figure>
+  <img src="paris.jpg" alt="Brian Jonestown Massacre — Paris, Bataclan">
+</figure>
+
+<hr>
+
+<details id="credits">
+<summary>Credits</summary>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td>Design, Illustration</td>
+    <td>Lukeabc</td>
+  </tr>
+</table>
+</details>
+
+
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">CV</a></li>
+</ul>
+
+<script>
+function snapToGrid() {
+  var lh = parseFloat(getComputedStyle(document.body).lineHeight);
+  if (!lh) return;
+  document.querySelectorAll('img, video').forEach(function(el) {
+    el.style.paddingBottom = '';
+    var h = el.getBoundingClientRect().height;
+    if (h <= 0) return;
+    var r = h % lh;
+    if (r > 0.5 && (lh - r) > 0.5)
+      el.style.paddingBottom = (lh - r) + 'px';
+  });
+}
+window.addEventListener('load', snapToGrid);
+window.addEventListener('resize', snapToGrid);
+
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>

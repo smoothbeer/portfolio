@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOAL — Brand Manifesto</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">This Is Everything</h1>
+    <span class="subtitle">Brand Platform</span>
+  </td>
+  <th>Client</th>
+  <td class="width-fit">GOAL</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Art Direction, Copywriting</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">2021</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+
+
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#work">The Work</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul>
+
+<figure>
+  <img src="goal1.png" alt="GOAL — Football. It's just a game right?">
+</figure>
+
+<h2 id="overview">Overview</h2>
+
+<p>
+  A brand manifesto and identity refresh for
+  <strong>GOAL</strong> — the global football media platform.
+  Produced through VICE Media Copenhagen, the brief called
+  for a new voice, visual direction, and narrative framework
+  that could carry the brand forward.
+</p>
+
+<p>
+  The project led directly to a full-time position at
+  Footballco, where I went on to build editorial frameworks,
+  social formats, and long-form storytelling systems.
+</p>
+
+<hr>
+
+<h2 id="work">The Work</h2>
+
+<p>
+  Nine slides. One argument. The manifesto reframes football
+  as something far bigger than a sport — opening with a
+  provocation and building through a sequence of cultural,
+  emotional, and social claims before landing on a single
+  definitive sign-off.
+</p>
+
+<figure>
+  <img src="goal1.png" alt="Football. It's just a game right?">
+  <figcaption>01 — The provocation. A packed stadium asks the question everyone already knows the answer to.</figcaption>
+</figure>
+
+<figure>
+  <img src="goal2.png" alt="A game of... chaos, glamour, diligence, ambition, humility, respect, arrogance, empathy, compassion & rebellion">
+  <figcaption>02 — The spectrum. Football contains every human quality — listed raw, without hierarchy.</figcaption>
+</figure>
+
+<figure>
+  <img src="goal3.png" alt="It's just a game that brings the gang & the fam together">
+  <figcaption>03 — The community. It's a bond between strangers. The gang. The fam.</figcaption>
+</figure>
+
+<figure>
+  <img src="goal4.png" alt="It's romance, drama, suspense, action, horror, comedy & even musicals">
+  <figcaption>04 — The genres. Football is every kind of story at once.</figcaption>
+</figure>
+
+<figure>
+  <img src="goal5.png" alt="It's about sorcery & absolute shithousery">
+  <figcaption>05 — The magic and the madness. The Hand of God. Enough said.</figcaption>
+</figure>
+
+<figure>
+  <img src="goal6.png" alt="It's having nightmares yet believing in fairytails">
+  <figcaption>06 — The emotional core. Heartbreak and hope, inseparable.</figcaption>
+</figure>
+
+<figure>
+  <img src="goal7.png" alt="This isn't just a game">
+  <figcaption>07 — The turn. Football reaches beyond the pitch — into real communities and real lives.</figcaption>
+</figure>
+
+<figure>
+  <img src="goal8.png" alt="This is love. This is wonder. This is football.">
+  <figcaption>08 — The declaration. Three short truths.</figcaption>
+</figure>
+
+<figure>
+  <img src="goal9.png" alt="GOAL — This is everything">
+  <figcaption>09 — The sign-off. Football is everything. GOAL is everything.</figcaption>
+</figure>
+
+<hr>
+
+<details id="credits">
+<summary>Credits</summary>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td>Art Direction, Copywriting</td>
+    <td>Lukeabc</td>
+  </tr>
+  <tr>
+    <td>Date</td>
+    <td>2021</td>
+  </tr>
+  <tr>
+    <td>Agency</td>
+    <td>VICE Media Copenhagen</td>
+  </tr>
+</table>
+</details>
+
+
+
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">CV</a></li>
+</ul>
+
+<script>
+function snapToGrid() {
+  var lh = parseFloat(getComputedStyle(document.body).lineHeight);
+  if (!lh) return;
+  document.querySelectorAll('img, video').forEach(function(el) {
+    el.style.paddingBottom = '';
+    var h = el.getBoundingClientRect().height;
+    if (h <= 0) return;
+    var r = h % lh;
+    if (r > 0.5 && (lh - r) > 0.5)
+      el.style.paddingBottom = (lh - r) + 'px';
+  });
+}
+window.addEventListener('load', snapToGrid);
+window.addEventListener('resize', snapToGrid);
+
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>

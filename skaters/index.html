@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SKATERS — Music Video</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">Rock and Roll Bye Bye</h1>
+    <span class="subtitle">A music video and tour content for SKATERS</span>
+  </td>
+  <th>Format</th>
+  <td class="width-fit">Music Video</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Art Direction, Direction</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">2016</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+
+
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul>
+
+<figure>
+  <img src="skaters1.jpg" alt="SKATERS — broken down near Birmingham, 2016">
+</figure>
+
+<h2 id="overview">Overview</h2>
+
+<p>
+  A music video and tour content package for NYC band
+  <strong>SKATERS</strong>. I joined the UK tour as a
+  one-person crew — directing, shooting, and editing
+  everything on the road. The video premiered on
+  <a href="https://www.vice.com/en/article/premiere-skaters-video-rock-n-roll-bye-bye/" target="_blank">NOISEY</a>.
+</p>
+
+<table>
+  <tr>
+    <th>Discipline</th>
+    <th>Detail</th>
+  </tr>
+  <tr>
+    <td>Direction</td>
+    <td>Concept, shot selection, narrative structure</td>
+  </tr>
+  <tr>
+    <td>Cinematography</td>
+    <td>Shot on location across the tour</td>
+  </tr>
+  <tr>
+    <td>Editing</td>
+    <td>Offline edit and final cut</td>
+  </tr>
+</table>
+
+<figure>
+  <div class="embed">
+    <iframe src="https://www.youtube-nocookie.com/embed/NcwnCmAcMzs?rel=0&modestbranding=1&showinfo=0" allowfullscreen></iframe>
+  </div>
+</figure>
+
+<figure>
+  <div class="embed">
+    <iframe src="https://www.youtube-nocookie.com/embed/dMoOVks3Lz4?rel=0&modestbranding=1&showinfo=0" allowfullscreen></iframe>
+  </div>
+</figure>
+
+
+<hr>
+
+<details id="credits">
+<summary>Credits</summary>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td>Art Direction, Direction</td>
+    <td>Lukeabc</td>
+  </tr>
+  <tr>
+    <td>Artist</td>
+    <td>SKATERS</td>
+  </tr>
+  <tr>
+    <td>Premiered</td>
+    <td><a href="https://www.vice.com/en/article/premiere-skaters-video-rock-n-roll-bye-bye/" target="_blank">NOISEY</a></td>
+  </tr>
+  <tr>
+    <td>Production</td>
+    <td>Independent</td>
+  </tr>
+</table>
+</details>
+
+
+
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">CV</a></li>
+</ul>
+
+<script>
+function snapToGrid() {
+  var lh = parseFloat(getComputedStyle(document.body).lineHeight);
+  if (!lh) return;
+  document.querySelectorAll('img, video').forEach(function(el) {
+    el.style.paddingBottom = '';
+    var h = el.getBoundingClientRect().height;
+    if (h <= 0) return;
+    var r = h % lh;
+    if (r > 0.5 && (lh - r) > 0.5)
+      el.style.paddingBottom = (lh - r) + 'px';
+  });
+}
+window.addEventListener('load', snapToGrid);
+window.addEventListener('resize', snapToGrid);
+
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>

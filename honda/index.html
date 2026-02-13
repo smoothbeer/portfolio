@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honda HR-V — Perfect Fit Garage</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">Perfect Fit Garage</h1>
+    <span class="subtitle">Campaign</span>
+  </td>
+  <th>Client</th>
+  <td class="width-fit">Honda</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Art Direction</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">2015</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+
+
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#work">The Work</a></li>
+<li><a href="#recognition">Recognition</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul>
+
+<figure>
+  <img src="hrv1.avif" alt="Honda HR-V — Perfect Fit Garage">
+</figure>
+
+<h2 id="overview">Overview</h2>
+
+<p>
+  A social-first pre-launch campaign for the Honda HR-V,
+  built around a single observation: nobody actually parks
+  in their garage. It's full of everything else.
+</p>
+
+<p>
+  The brief positioned the HR-V as a car that fits into
+  your life. We took that literally — and made the mess
+  the message.
+</p>
+
+<hr>
+
+<h2 id="work">The Work</h2>
+
+<p>
+  Perfect Fit Garage played on the gap between how people
+  imagine their garage and how it actually looks. The
+  content ran across social as a pre-launch activation,
+  turning the everyday chaos into a reason to care about
+  the car before it even hit showrooms.
+</p>
+
+<figure>
+<div class="embed">
+  <iframe src="https://player.vimeo.com/video/137935203?title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
+</figure>
+
+<figure>
+  <img src="hrv4.avif" alt="Honda HR-V Perfect Fit Garage — campaign image">
+</figure>
+
+<figure>
+  <img src="hrv9.avif" alt="Honda HR-V Perfect Fit Garage — campaign image">
+</figure>
+
+<details id="recognition">
+<summary>Recognition</summary>
+
+<table>
+  <tr>
+    <th>Award</th>
+    <th>Detail</th>
+  </tr>
+  <tr>
+    <td>Cristal Gold</td>
+    <td>2016</td>
+  </tr>
+  <tr>
+    <td>British Arrows Craft Awards</td>
+    <td>Best New Director</td>
+  </tr>
+  <tr>
+    <td>Press</td>
+    <td><a href="https://www.davidreviews.com/Reviews/2015/Honda_HRV_Perfect_Fit/" target="_blank">"★★★★★" — davidreviews</a></td>
+  </tr>
+</table>
+</details>
+
+<hr>
+
+<details id="credits">
+<summary>Credits</summary>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td>Art Direction</td>
+    <td>Lukeabc</td>
+  </tr>
+  <tr>
+    <td>Copywriting</td>
+    <td>Jenny Hughes</td>
+  </tr>
+  <tr>
+    <td>Creative Direction</td>
+    <td>Gav Gordon-Rodgers, Gemma Butler</td>
+  </tr>
+  <tr>
+    <td>Year</td>
+    <td>2015</td>
+  </tr>
+  <tr>
+    <td>Agency</td>
+    <td>Lost Boys / DigitasLBi</td>
+  </tr>
+</table>
+</details>
+
+
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">CV</a></li>
+</ul>
+
+<script>
+function snapToGrid() {
+  var lh = parseFloat(getComputedStyle(document.body).lineHeight);
+  if (!lh) return;
+  document.querySelectorAll('img, video').forEach(function(el) {
+    el.style.paddingBottom = '';
+    var h = el.getBoundingClientRect().height;
+    if (h <= 0) return;
+    var r = h % lh;
+    if (r > 0.5 && (lh - r) > 0.5)
+      el.style.paddingBottom = (lh - r) + 'px';
+  });
+}
+window.addEventListener('load', snapToGrid);
+window.addEventListener('resize', snapToGrid);
+
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>

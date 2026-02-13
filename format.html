@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Format — Template</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<h2>Advertising</h2>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">PROJECT NAME</h1>
+    <span class="subtitle">Subtitle</span>
+  </td>
+  <th>Client</th>
+  <td class="width-fit">Client Name</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Art Direction / Copy</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">20XX</td>
+</tr>
+</table>
+
+<h2>Branding</h2>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">PROJECT NAME</h1>
+    <span class="subtitle">Subtitle</span>
+  </td>
+  <th>Client</th>
+  <td class="width-fit">Client Name</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Design / Art Direction</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">20XX</td>
+</tr>
+</table>
+
+<h2>Art</h2>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">PROJECT NAME</h1>
+    <span class="subtitle">Subtitle</span>
+  </td>
+  <th>Medium</th>
+  <td class="width-fit">Medium</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Art / Illustration</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">20XX</td>
+</tr>
+</table>
+
+<h2>Miscellaneous</h2>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">PROJECT NAME</h1>
+    <span class="subtitle">Subtitle</span>
+  </td>
+  <th>Format</th>
+  <td class="width-fit">Format</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Creative Direction</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">20XX</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+<script>
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+</script>
+<script src="js/chaos.js"></script>
+</body>
+</html>

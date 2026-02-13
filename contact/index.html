@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lukeabc — Contact</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">Lukeabc</h1>
+    <span class="subtitle">Ideas, art, design and technology</span>
+  </td>
+  <th>Date</th>
+  <td class="width-min" id="live-date"></td>
+</tr>
+<tr>
+  <th>Time</th>
+  <td class="width-min" id="live-time"></td>
+</tr>
+<tr>
+  <th>Contact</th>
+  <td class="width-auto"><a href="../contact/index.html">Email</a></td>
+  <th>Location</th>
+  <td class="width-min">UK</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+
+
+
+
+<h2>Contact</h2>
+
+<form id="contact-form">
+  <label>Name
+    <input type="text" name="name" required>
+  </label>
+  <label>Email
+    <input type="email" name="email" required>
+  </label>
+  <label>Message
+    <textarea name="message" rows="6" required style="width: 100%; height: calc(var(--line-height) * 8); resize: vertical;"></textarea>
+  </label>
+  <button type="submit">Send</button>
+</form>
+
+<p id="form-status" style="display: none;"></p>
+
+
+
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">CV</a></li>
+</ul>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var status = document.getElementById('form-status');
+  var name = form.name.value;
+  var email = form.email.value;
+  var message = form.message.value;
+  var subject = encodeURIComponent('Contact from ' + name);
+  var body = encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message);
+  window.location.href = 'mailto:lukeabcrawford@gmail.com?subject=' + subject + '&body=' + body;
+  status.textContent = 'Opening your email client...';
+  status.style.display = '';
+});
+
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+
+// Live clock
+function updateClock() {
+  var now = new Date();
+  var d = document.getElementById('live-date');
+  var t = document.getElementById('live-time');
+  if (d) d.textContent = now.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  if (t) t.textContent = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+}
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>

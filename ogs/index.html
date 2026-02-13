@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The OGs — Brand Identity</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">The OGs</h1>
+    <span class="subtitle">Brand Identity</span>
+  </td>
+  <th>Client</th>
+  <td class="width-fit">FAR</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Art Direction, Design</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">2025</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+
+
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#work">The Work</a></li>
+<li><a href="#wordmarks">Wordmarks</a></li>
+<li><a href="#fonts">Fonts</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul>
+
+<figure>
+  <img src="ogs-1.gif" alt="The OGs — animated logo with cycling emoji and ransom-note typography">
+</figure>
+
+<h2 id="overview">Overview</h2>
+
+<p>
+  Brand identity for <strong>The OGs</strong>, a series of
+  1,024 digital paintings by <strong>FAR</strong> that
+  reimagine emojis as painterly digital relics. Each work
+  begins as a hand-drawn emoji, then gets rebuilt through
+  algorithms that distort, warp and layer it into something
+  between painting and code.
+</p>
+
+<p>
+  The project name is a play on OGs and em-<em>O</em>-gees —
+  so the identity needed to live in that same space: familiar
+  symbols, remixed beyond recognition.
+</p>
+
+<hr>
+
+<h2 id="work">The Work</h2>
+
+<p>
+  The logo replaces the O in OGs with an emoji — any emoji.
+  The G and S are cut-out letterforms in different typefaces,
+  scales and textures, assembled like a ransom note. Every
+  combination is different. A generative logo for a
+  generative art collection.
+</p>
+
+<p>
+  The system mirrors the artwork's own logic: take something
+  universal, remix it, and make it strange. The result is an
+  identity that never looks the same twice but always reads
+  as the same thing.
+</p>
+
+<figure>
+  <img src="og1.png" alt="The OGs — ransom-note logo with eight variations showing modified emoji and letterform combinations">
+  <figcaption>One logo, infinite variations.</figcaption>
+</figure>
+
+<figure>
+  <img src="og5.png" alt="The OGs — ransom-note logo with eight variations using standard emojis">
+</figure>
+
+<figure>
+  <img src="og4.png" alt="The OGs — collage of cut-out G letterforms in different typefaces and textures">
+  <figcaption>The Gs — cut from different typefaces, scales and textures.</figcaption>
+</figure>
+
+<p>
+  A clean lockup also exists for simpler applications — bold
+  sans-serif with a single emoji as the O. Both registers
+  work within the same logic.
+</p>
+
+<figure>
+  <img src="ogstest.gif" alt="The OGs — clean logo lockup with melting emoji">
+  <figcaption>Clean lockup — single emoji, consistent type.</figcaption>
+</figure>
+
+<details id="collection">
+<summary>The Collection</summary>
+
+<p>
+  The artworks themselves: emojis as cultural fossils,
+  run through layers of drawing, computation and digital
+  painting. Visually rooted in early web aesthetics and
+  post-internet art.
+</p>
+
+<div class="grid">
+  <img src="fabbb1a7e9b6085e85dd8e3db54a8ca7.avif" alt="The OGs — twin skulls with explosion">
+  <img src="ded7e5628b66cd421c394223ad5b9dfe.avif" alt="The OGs — melting face emoji">
+</div>
+
+<div class="grid">
+  <img src="837e8895a99c69d53c8225f728d6b46f.avif" alt="The OGs — crystal ball emoji">
+  <img src="426103eb884eb9acf0371141ea5b1803.avif" alt="The OGs — pixelated rubber duck">
+</div>
+</details>
+
+
+<hr>
+
+<details id="credits">
+<summary>Credits</summary>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td>Art Direction, Design</td>
+    <td>Lukeabc</td>
+  </tr>
+  <tr>
+    <td>Year</td>
+    <td>2025</td>
+  </tr>
+</table>
+</details>
+
+
+
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">CV</a></li>
+</ul>
+
+<script>
+function snapToGrid() {
+  var lh = parseFloat(getComputedStyle(document.body).lineHeight);
+  if (!lh) return;
+  document.querySelectorAll('img, video').forEach(function(el) {
+    el.style.paddingBottom = '';
+    var h = el.getBoundingClientRect().height;
+    if (h <= 0) return;
+    var r = h % lh;
+    if (r > 0.5 && (lh - r) > 0.5)
+      el.style.paddingBottom = (lh - r) + 'px';
+  });
+}
+window.addEventListener('load', snapToGrid);
+window.addEventListener('resize', snapToGrid);
+
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>

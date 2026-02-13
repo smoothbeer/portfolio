@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thingdoms</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">Thingdoms</h1>
+    <span class="subtitle">A generative character project</span>
+  </td>
+  <th>Medium</th>
+  <td class="width-fit">Generative Art</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Art, Creative Direction</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">2021</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+
+
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#collection">The Collection</a></li>
+<li><a href="#storage">Storage</a></li>
+<li><a href="#licence">Licence</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul>
+
+<figure>
+  <img src="icon.png" alt="Thingdoms">
+</figure>
+
+<h2 id="overview">Overview</h2>
+
+<p>
+  Thingdoms is an experimental art project released in 2021 as a complete collection of 10,000 digital characters. It explores identity, mood, and narrative through character-based generative systems.
+</p>
+
+<p>
+  Conceived as a kind of Gesamtkunstwerk, it emerged during a moment shaped by generative art, blockchain, and internet culture, and lives across various mediums.
+</p>
+
+<hr>
+
+<h2 id="collection">The Collection</h2>
+
+<p>
+  Over time, the original characters have been reimagined and released as additional 10,000-piece collections, each in a new style.
+</p>
+
+<h3>Original</h3>
+
+<div class="grid">
+  <img src="remaster/125.png" alt="Thing #125">
+  <img src="remaster/127.png" alt="Thing #127">
+  <img src="remaster/129.png" alt="Thing #129">
+  <img src="remaster/131.png" alt="Thing #131">
+  <img src="remaster/133.png" alt="Thing #133">
+</div>
+
+<h3>Pixel</h3>
+
+<div class="grid">
+  <img src="pixel/125.gif" alt="Pixel #125" style="image-rendering: pixelated;">
+  <img src="pixel/127.gif" alt="Pixel #127" style="image-rendering: pixelated;">
+  <img src="pixel/129.gif" alt="Pixel #129" style="image-rendering: pixelated;">
+  <img src="pixel/131.gif" alt="Pixel #131" style="image-rendering: pixelated;">
+  <img src="pixel/133.gif" alt="Pixel #133" style="image-rendering: pixelated;">
+</div>
+
+<h3>Floaty</h3>
+
+<div class="grid">
+  <img src="floaty/125.png" alt="Floaty #125">
+  <img src="floaty/127.png" alt="Floaty #127">
+  <img src="floaty/129.png" alt="Floaty #129">
+  <img src="floaty/131.png" alt="Floaty #131">
+  <img src="floaty/133.png" alt="Floaty #133">
+</div>
+
+
+<details id="storage">
+<summary>Storage</summary>
+
+<p>
+  Each artwork exists as an ERC-721 token on the Ethereum blockchain, with the images and metadata stored on IPFS, a distributed storage protocol. This means the work lives permanently outside any single platform or server. All versions of the collection are archived the same way.
+</p>
+
+</details>
+
+<details id="licence">
+<summary>Licence</summary>
+
+<p>
+  Collectors can display, adapt, and build on their Thing as part of their own creative practice. The licence is designed to encourage participation rather than restrict it, while keeping the authorship and trademarks with the artist.
+</p>
+
+</details>
+
+<hr>
+
+<details id="credits">
+<summary>Credits</summary>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td>Art, Creative Direction</td>
+    <td>Lukeabc</td>
+  </tr>
+  <tr>
+    <td>Code</td>
+    <td>Eoghan</td>
+  </tr>
+</table>
+</details>
+
+
+
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">CV</a></li>
+</ul>
+
+<script>
+function snapToGrid() {
+  var lh = parseFloat(getComputedStyle(document.body).lineHeight);
+  if (!lh) return;
+  document.querySelectorAll('img, video').forEach(function(el) {
+    el.style.paddingBottom = '';
+    var h = el.getBoundingClientRect().height;
+    if (h <= 0) return;
+    var r = h % lh;
+    if (r > 0.5 && (lh - r) > 0.5)
+      el.style.paddingBottom = (lh - r) + 'px';
+  });
+}
+window.addEventListener('load', snapToGrid);
+window.addEventListener('resize', snapToGrid);
+
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>

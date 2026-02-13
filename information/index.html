@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lukeabc — CV</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">Lukeabc</h1>
+    <span class="subtitle">Ideas, art, design and technology</span>
+  </td>
+  <th>Date</th>
+  <td class="width-min" id="live-date"></td>
+</tr>
+<tr>
+  <th>Time</th>
+  <td class="width-min" id="live-time"></td>
+</tr>
+<tr>
+  <th>Contact</th>
+  <td class="width-auto"><a href="../contact/index.html">Email</a></td>
+  <th>Location</th>
+  <td class="width-min">UK</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+
+
+
+
+<h2 id="experience">CV</h2>
+
+<table>
+  <tr>
+    <th class="width-min">Year</th>
+    <th>Role</th>
+    <th>Place</th>
+  </tr>
+  <tr>
+    <td>2018–present</td>
+    <td>Senior Creative</td>
+    <td><strong>Freelance</strong></td>
+  </tr>
+  <tr>
+    <td>2017–2018</td>
+    <td>Senior Creative</td>
+    <td><strong>Adjust Your Set</strong></td>
+  </tr>
+  <tr>
+    <td>2016–2017</td>
+    <td>Midweight Creative</td>
+    <td><strong>Rankin</strong></td>
+  </tr>
+  <tr>
+    <td>2015</td>
+    <td>Midweight Creative</td>
+    <td><strong>Lost Boys / DigitasLBi</strong></td>
+  </tr>
+  <tr>
+    <td>2014</td>
+    <td>Midweight Creative</td>
+    <td><strong>Blonde</strong></td>
+  </tr>
+  <tr>
+    <td>2014</td>
+    <td>Junior Creative</td>
+    <td><strong>Dentsu Aegis Network</strong></td>
+  </tr>
+  <tr>
+    <td>2013</td>
+    <td>Junior Creative</td>
+    <td><strong>STV Creative</strong></td>
+  </tr>
+  <tr>
+    <td>2013</td>
+    <td>Placement</td>
+    <td><strong>Grey London</strong></td>
+  </tr>
+  <tr>
+    <td>2012</td>
+    <td>Placement</td>
+    <td><strong>The Leith Agency</strong></td>
+  </tr>
+</table>
+
+<h2 id="education">Education</h2>
+
+<table>
+  <tr>
+    <th class="width-min">Year</th>
+    <th>Qualification</th>
+  </tr>
+  <tr>
+    <td>2011–2012</td>
+    <td>MSc Creative Advertising, <strong>Edinburgh Napier University</strong></td>
+  </tr>
+  <tr>
+    <td>2012</td>
+    <td><strong>D&AD Graduate Academy</strong>, Google Campus London</td>
+  </tr>
+  <tr>
+    <td>2006–2011</td>
+    <td>BA (Hons) Marketing, <strong>Glasgow Caledonian University</strong></td>
+  </tr>
+</table>
+
+
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">CV</a></li>
+</ul>
+
+<script>
+function snapToGrid() {
+  var lh = parseFloat(getComputedStyle(document.body).lineHeight);
+  if (!lh) return;
+  document.querySelectorAll('img, video').forEach(function(el) {
+    el.style.paddingBottom = '';
+    var h = el.getBoundingClientRect().height;
+    if (h <= 0) return;
+    var r = h % lh;
+    if (r > 0.5 && (lh - r) > 0.5)
+      el.style.paddingBottom = (lh - r) + 'px';
+  });
+}
+window.addEventListener('load', snapToGrid);
+window.addEventListener('resize', snapToGrid);
+
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+
+// Live clock
+function updateClock() {
+  var now = new Date();
+  var d = document.getElementById('live-date');
+  var t = document.getElementById('live-time');
+  if (d) d.textContent = now.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  if (t) t.textContent = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+}
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>

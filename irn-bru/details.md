@@ -1,0 +1,1 @@
+I made a Christmas card for the whole of Scotland. Concepted during a placement and later included in IRN-BRU multipacks across the country over Christmas. One of three seasonal cards. First piece of work I ever made that went out into the world.
