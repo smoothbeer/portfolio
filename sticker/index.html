@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Orb Project</title>
+<title>World Cup 2026 Sticker Book</title>
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../css/index.css">
 </head>
@@ -12,15 +12,15 @@
 <table class="header">
 <tr>
   <td rowspan="2" colspan="2" class="width-auto">
-    <h1 class="title">The Orb Project</h1>
-    <span class="subtitle">The sun and moon, as light and sound</span>
+    <h1 class="title">Sticker Book</h1>
+    <span class="subtitle">World Cup 2026 Digital Collectibles</span>
   </td>
   <th>Format</th>
-  <td class="width-fit">Web</td>
+  <td class="width-fit">Web App</td>
 </tr>
 <tr>
   <th>Discipline</th>
-  <td class="width-fit">Art, Code</td>
+  <td class="width-fit">Design, Code</td>
 </tr>
 <tr>
   <th>By</th>
@@ -35,15 +35,96 @@
 <label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
 <div class="debug-grid"></div>
 
-<img src="../weather/hero.png" alt="The Orb Project">
-
 <h2 id="overview">Overview</h2>
 
-<p>Inspired by Olafur Eliasson's <em>The Weather Project</em>. A glowing orb whose colour, brightness and sound are driven by the real sun and moon above you — calculated from your location and clock. Built in the browser with WebGL and Web Audio.</p>
+<p>
+  A digital World Cup 2026 sticker book where you collect players
+  by dragging images from Google Images into the album. You open
+  packs to get assigned players, then go and find the photos
+  yourself. The search is the collecting experience. 48 teams,
+  1,440 slots, all stored locally in the browser.
+</p>
 
-<a class="btn" href="https://the-orb-project.vercel.app/">View project &rarr;</a>
+<a class="btn" href="https://sticker-book-pi.vercel.app/">View project &rarr;</a>
 
 <hr>
+
+<details id="the-idea">
+<summary>The Idea</summary>
+
+<p>
+  Google Images is the largest image library in the world but
+  there's no real reason to browse it. The sticker book gives you
+  one. Each pack assigns you a handful of players to hunt down
+  and the collecting mechanic makes each find feel worthwhile.
+  The album provides the structure, the open web provides the
+  content.
+</p>
+
+</details>
+
+<details id="pack-economy">
+<summary>Pack Economy</summary>
+
+<p>
+  Packs gate the experience so collecting plays out over days
+  rather than minutes.
+</p>
+
+<table>
+  <tr>
+    <th>Mechanic</th>
+    <th>Detail</th>
+  </tr>
+  <tr>
+    <td>Pack size</td>
+    <td>6 cards</td>
+  </tr>
+  <tr>
+    <td>Starting packs</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>Replenish</td>
+    <td>1 every 15 min, up to 4 per hour, capped at 10</td>
+  </tr>
+  <tr>
+    <td>Rare pull rate</td>
+    <td>5% per player card</td>
+  </tr>
+  <tr>
+    <td>Duplicates</td>
+    <td>Upgrade to rare or store. 3 dupes convert into a bonus pack</td>
+  </tr>
+  <tr>
+    <td>Seeded dupes</td>
+    <td>Packs 3 and 5 guarantee a duplicate to introduce the mechanic early</td>
+  </tr>
+</table>
+</details>
+
+<details id="stack">
+<summary>Stack</summary>
+
+<table>
+  <tr>
+    <th>Layer</th>
+    <th>Technology</th>
+  </tr>
+  <tr>
+    <td>Framework</td>
+    <td>React 18 + Vite</td>
+  </tr>
+  <tr>
+    <td>Storage</td>
+    <td>localStorage only, no backend, no accounts</td>
+  </tr>
+  <tr>
+    <td>Hosting</td>
+    <td>Vercel</td>
+  </tr>
+</table>
+</details>
 
 <details id="credits">
 <summary>Credits</summary>
@@ -54,7 +135,7 @@
     <th>Name</th>
   </tr>
   <tr>
-    <td>Art, Code</td>
+    <td>Design, Code</td>
     <td>Lukeabc</td>
   </tr>
 </table>
