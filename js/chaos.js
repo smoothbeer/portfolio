@@ -44,7 +44,8 @@
 
   // Images that always appear in chaos mode
   var PINNED_IMAGES = [
-    '../selected works/catch.png'
+    '../selected works/catch.png',
+    '../hireme.png'
   ];
 
   var C = {
