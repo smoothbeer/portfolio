@@ -42,6 +42,11 @@
     '../selected works/tumblr_ma8r9ezzMo1qfwoa1o1_1280.jpg', '../selected works/tumblr_ma8rapeXXE1qfwoa1o1_1280.jpg', '../selected works/tumblr_ma8rcfJU8X1qfwoa1o1_1280.jpg', '../selected works/tumblr_ng4shgIKQt1qfwoa1o1_1280.jpg', '../selected works/tumblr_ng4slwnydJ1qfwoa1o1_1280.png', '../selected works/tumblr_ng4ssbyIvy1qfwoa1o1_1280.png', '../selected works/tumblr_ng4sz4jQcb1qfwoa1o1_1280.jpg', '../selected works/tumblr_ng4tfif5Xb1qfwoa1o1_1280.jpg', '../selected works/tumblr_ngf1ivB1GZ1qfwoa1o1_500.jpg', '../selected works/tumblr_nmllpyV0rD1qfwoa1o1_1280.jpg', '../selected works/tumblr_nmutvi9muR1qfwoa1o1_1280.jpeg', '../selected works/tumblr_nmutvi9muR1qfwoa1o2_1280.jpeg', '../selected works/tumblr_nmuurtoYtr1qfwoa1o1_1280.jpg', '../selected works/tumblr_nnvdhxMn2t1qfwoa1o1_1280.jpeg', '../selected works/tumblr_nnvdjkCnXf1qfwoa1o1_1280.jpeg', '../selected works/tumblr_nnxnebtlxI1qfwoa1o1_1280.jpeg', '../selected works/tumblr_nnxnf7Chny1qfwoa1o1_1280.jpeg', '../selected works/tumblr_nnxngiv2p71qfwoa1o1_640.jpeg', '../selected works/tumblr_npwrfm0r401qfwoa1o3_1280.jpeg', '../selected works/tumblr_nqm4jlWprE1qfwoa1o2_1280.jpeg', '../selected works/tumblr_o3myxs4hSA1qfwoa1o1_1280.jpg', '../selected works/tumblr_n6tpi71ZX51qfwoa1o1_1280.jpg', '../selected works/tumblr_n7mi13f3LN1qfwoa1o1_1280.jpg', '../selected works/tumblr_ncb3d3YgDS1qfwoa1o1_1280.jpg', '../selected works/tumblr_ngbi6qxryj1qfwoa1o1_1280.jpg', '../selected works/tumblr_ngqjupoTo81qfwoa1o1_1280.jpg', '../selected works/tumblr_ngqkst5lv81qfwoa1o1_1280.jpg', '../selected works/tumblr_nmpmmxXs9H1qfwoa1o1_1280.jpg', '../selected works/tumblr_nmucpmUrIv1qfwoa1o1_1280.jpg', '../selected works/tumblr_noew1em3WI1qfwoa1o1_540.jpg', '../selected works/tumblr_noji0hwmZ91qfwoa1o1_1280.jpg', '../selected works/tumblr_ng9q7b3Y7G1qfwoa1o1_640.jpg', '../selected works/tumblr_ngmm8r6nWX1qfwoa1o1_640.jpg', '../selected works/22.png', '../selected works/33.jpg', '../selected works/tpo2.png', '../selected works/wuth.jpg', '../selected works/wuh.jpg', '../selected works/wuh4.jpg', '../selected works/wuh5.jpg'
   ];
 
+  // Images that always appear in chaos mode
+  var PINNED_IMAGES = [
+    '../selected works/catch.png'
+  ];
+
   var C = {
     raf: null, trail: [], history: [], glow: null, cursorEl: null, mx: 0, my: 0,
     TRAIL_N: 20, HIST_N: 8, RADIUS: 250, FORCE: 30,
@@ -164,13 +169,18 @@
   function spawnFloaters() {
     var vw = window.innerWidth;
     var vh = window.innerHeight;
-    // Shuffle and pick 25
+    // Shuffle and pick 25, but always include pinned images
     var shuffled = SITE_IMAGES.slice();
     for (var i = shuffled.length - 1; i > 0; i--) {
       var r = Math.floor(Math.random() * (i + 1));
       var tmp = shuffled[i]; shuffled[i] = shuffled[r]; shuffled[r] = tmp;
     }
-    var count = Math.min(shuffled.length, 25);
+    var count = Math.min(shuffled.length, 25 - PINNED_IMAGES.length);
+    // Remove any pinned images from the shuffled pool so they don't appear twice
+    shuffled = shuffled.filter(function(src) { return PINNED_IMAGES.indexOf(src) === -1; });
+    // Prepend pinned images so they always appear
+    shuffled = PINNED_IMAGES.concat(shuffled);
+    count = Math.min(shuffled.length, 25);
 
     for (var n = 0; n < count; n++) {
       var img = document.createElement('img');

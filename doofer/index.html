@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doofer — IPTV Player</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">Doofer</h1>
+    <span class="subtitle">Web-based IPTV Player</span>
+  </td>
+  <th>Format</th>
+  <td class="width-fit">Web App</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Art Direction, Code, Design</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">2026</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+<h2 id="overview">Overview</h2>
+
+<p>
+  A web-based IPTV player built so I could watch football in VR.
+  Couldn't find one that worked, so I built one with Claude Code.
+  Load an M3U playlist, pick a channel, watch. It just works.
+</p>
+
+<a class="btn" href="https://doofer.crof.co.uk">View project &rarr;</a>
+
+<hr>
+
+<details id="interfaces">
+<summary>Interfaces</summary>
+
+<p>
+  Three interface modes, each built for a different situation.
+</p>
+
+<table>
+  <tr>
+    <th>Mode</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Normal</td>
+    <td>Standard player. Channel list, search, video. Nothing fancy, just works.</td>
+  </tr>
+  <tr>
+    <td>TeeFax</td>
+    <td>A ceefax-inspired interface designed to run on slow browsers or bad internet. Stripped back to text and numbers so you can still find what you need when the connection is struggling.</td>
+  </tr>
+  <tr>
+    <td>Work Mode</td>
+    <td>Hides the player inside a mock desktop with a fake spreadsheet in front of it. For watching TV when you should be working.</td>
+  </tr>
+</table>
+
+<img src="work2.png" alt="TeeFax mode, a ceefax-inspired channel listing interface">
+
+<img src="work.png" alt="Work mode, the player hidden inside a mock desktop spreadsheet">
+
+</details>
+
+<details id="credits">
+<summary>Credits</summary>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td>Art Direction, Code, Design</td>
+    <td>Lukeabc</td>
+  </tr>
+</table>
+</details>
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">CV</a></li>
+</ul>
+
+<script>
+function snapToGrid() {
+  var lh = parseFloat(getComputedStyle(document.body).lineHeight);
+  if (!lh) return;
+  document.querySelectorAll('img, video').forEach(function(el) {
+    el.style.paddingBottom = '';
+    var h = el.getBoundingClientRect().height;
+    if (h <= 0) return;
+    var r = h % lh;
+    if (r > 0.5 && (lh - r) > 0.5)
+      el.style.paddingBottom = (lh - r) + 'px';
+  });
+}
+window.addEventListener('load', snapToGrid);
+window.addEventListener('resize', snapToGrid);
+
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>
