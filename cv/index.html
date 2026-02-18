@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lukeabc — CV</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+<style>
+/* Print / PDF export styles */
+@media print {
+  :root {
+    --text-color: #000;
+    --text-color-alt: #555;
+    --background-color: #fff;
+    --background-color-alt: #f0f0f0;
+    font-size: 12px;
+  }
+  * + * { margin-top: 0; }
+  html { background: #fff; color: #000; }
+  body {
+    max-width: 100%;
+    padding: 1cm 1.2cm;
+    margin: 0;
+    line-height: 1.4;
+  }
+  .no-print { display: none !important; }
+  a { text-decoration: none; color: #000; }
+
+  /* Header block */
+  .header {
+    margin-bottom: 1.8em;
+    top: 0;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin: 0 0 0.15em;
+  }
+  .header .subtitle { margin: 0; }
+  .header th, .header td {
+    padding: 0.3em 1ch;
+    line-height: 1.4;
+  }
+
+  /* Section headings — consistent space above and below */
+  h2 {
+    font-size: 0.85rem;
+    margin: 1.6em 0 0.6em;
+    page-break-after: avoid;
+  }
+
+  /* Profile paragraph */
+  p {
+    margin: 0 0 0.4em;
+    line-height: 1.5;
+  }
+
+  /* Tables */
+  table {
+    top: 0;
+    width: 100%;
+    margin: 0 0 0.4em;
+  }
+  th, td {
+    padding: 0.25em 1ch;
+    line-height: 1.4;
+  }
+
+  /* Skills */
+  .skills-list {
+    margin: 0 0 0.4em;
+    gap: 0.5ch;
+  }
+  .skills-list li {
+    font-size: 0.8rem;
+    padding: 0.1em 0.6ch;
+  }
+}
+
+/* Export button */
+.export-btn {
+  position: fixed;
+  top: var(--line-height);
+  right: 2ch;
+  z-index: 100;
+}
+
+/* Skills list */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1ch;
+  margin-bottom: var(--line-height);
+  padding: 0;
+}
+.skills-list li {
+  border: var(--border-thickness) solid var(--text-color);
+  padding: 0 1ch;
+  list-style: none;
+  font-size: 0.85rem;
+}
+</style>
+</head>
+<body>
+
+<button class="export-btn btn no-print" onclick="window.print()">Export PDF</button>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">Lukeabc</h1>
+    <span class="subtitle">Senior Creative</span>
+  </td>
+  <th>Contact</th>
+  <td class="width-min">lukeabcstudio@gmail.com</td>
+</tr>
+<tr>
+  <th>Location</th>
+  <td class="width-min">UK</td>
+</tr>
+<tr>
+  <th>Portfolio</th>
+  <td class="width-auto">lukeabc.com</td>
+  <th>Updated</th>
+  <td class="width-min">2026</td>
+</tr>
+</table>
+
+
+<h2>Profile</h2>
+
+<p>I make things. Concept, copy, art direction, strategy, and sometimes the whole thing from scratch. I've worked in ad agencies, creative studios and tech startups, collaborated with artists, researchers and academics, and written and art directed for brands like Nike, DAZN and Honda. I make my own work too. Lately that means creative direction, consulting, generative art, identity design, and whatever else I can't stop thinking about. I'm interested in the space where ideas, art, design and technology overlap.</p>
+
+
+<h2>Skills</h2>
+
+<ul class="skills-list">
+  <li>Art Direction</li>
+  <li>Copywriting</li>
+  <li>Creative Direction</li>
+  <li>Concept</li>
+  <li>Brand Identity</li>
+  <li>Design</li>
+  <li>Tone of Voice</li>
+  <li>Campaign</li>
+  <li>Code</li>
+  <li>Illustration</li>
+  <li>Direction</li>
+  <li>Curation</li>
+</ul>
+
+
+<h2>Experience</h2>
+
+<table>
+  <tr>
+    <th class="width-min">Year</th>
+    <th>Role</th>
+    <th>Place</th>
+  </tr>
+  <tr>
+    <td>2018–present</td>
+    <td>Creative</td>
+    <td><strong>Freelance</strong></td>
+  </tr>
+  <tr>
+    <td>2017–2018</td>
+    <td>Copywriter</td>
+    <td><strong>Adjust Your Set</strong>, London</td>
+  </tr>
+  <tr>
+    <td>2016–2017</td>
+    <td>Creative</td>
+    <td><strong>Rankin</strong>, London</td>
+  </tr>
+  <tr>
+    <td>2016</td>
+    <td>Creative</td>
+    <td><strong>Freelance</strong>, New York</td>
+  </tr>
+  <tr>
+    <td>2015</td>
+    <td>Creative</td>
+    <td><strong>Lost Boys / DigitasLBi</strong>, Edinburgh</td>
+  </tr>
+  <tr>
+    <td>2014</td>
+    <td>Copywriter</td>
+    <td><strong>Blonde</strong>, Edinburgh</td>
+  </tr>
+  <tr>
+    <td>2014</td>
+    <td>Junior Creative</td>
+    <td><strong>Dentsu Aegis Network</strong>, London</td>
+  </tr>
+  <tr>
+    <td>2013</td>
+    <td>Junior Creative</td>
+    <td><strong>STV Creative</strong>, Glasgow</td>
+  </tr>
+  <tr>
+    <td>2013</td>
+    <td>Creative Intern</td>
+    <td><strong>Grey London</strong>, London</td>
+  </tr>
+  <tr>
+    <td>2012</td>
+    <td>Creative Intern</td>
+    <td><strong>The Leith Agency</strong>, Edinburgh</td>
+  </tr>
+</table>
+
+
+<h2>Education</h2>
+
+<table>
+  <tr>
+    <th class="width-min">Year</th>
+    <th>Qualification</th>
+  </tr>
+  <tr>
+    <td>2011–2012</td>
+    <td>MSc Creative Advertising, <strong>Edinburgh Napier University</strong></td>
+  </tr>
+  <tr>
+    <td>2012</td>
+    <td><strong>D&AD Graduate Academy</strong>, Google Campus London</td>
+  </tr>
+  <tr>
+    <td>2006–2011</td>
+    <td>BA (Hons) Marketing, <strong>Glasgow Caledonian University</strong></td>
+  </tr>
+</table>
+
+
+<h2 class="no-print">Navigation</h2>
+
+<ul class="no-print">
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">Info</a></li>
+</ul>
+
+<script>
+// Live clock (hidden in print)
+function updateClock() {
+  var now = new Date();
+  var d = document.getElementById('live-date');
+  var t = document.getElementById('live-time');
+  if (d) d.textContent = now.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  if (t) t.textContent = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+}
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+</body>
+</html>

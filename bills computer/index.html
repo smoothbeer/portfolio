@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bill's Computer</title>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<table class="header">
+<tr>
+  <td rowspan="2" colspan="2" class="width-auto">
+    <h1 class="title">Bill's Computer</h1>
+    <span class="subtitle">A Pokemon trainer's desktop OS in the browser</span>
+  </td>
+  <th>Format</th>
+  <td class="width-fit">Web App</td>
+</tr>
+<tr>
+  <th>Discipline</th>
+  <td class="width-fit">Art Direction, Code, Design</td>
+</tr>
+<tr>
+  <th>By</th>
+  <td class="width-auto">LUKEABC</td>
+  <th>Date</th>
+  <td class="width-min">2026</td>
+</tr>
+</table>
+
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle"> Debug mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="light-toggle"> Light mode</label>
+<label class="debug-toggle-label"><input type="checkbox" class="chaos-toggle"> Chaos mode</label>
+<div class="debug-grid"></div>
+
+<h2 id="overview">Overview</h2>
+
+<p>
+  A fully interactive desktop operating system in the browser, themed as a Pokemon trainer's workstation. "OakOS" simulates a retro 90s PC where you manage your Pokemon Trading Card Game collection, chat with AI characters, explore the Kanto map, and more. The whole thing is one HTML file, no build step.
+</p>
+
+<figure>
+  <img src="pic1.png" alt="OakOS desktop">
+</figure>
+
+<a class="btn" href="https://bills.computer">View project &rarr;</a>
+
+<hr>
+
+<details id="the-idea">
+<summary>The Idea</summary>
+
+<p>
+  It started because I collect Pokemon cards and every app or site for logging your collection is obsessed with prices — everything's about portfolio value, market drops, what your cards are "worth." I just wanted somewhere to organise my collection without constantly being reminded of money. So I built my own thing.
+</p>
+
+<p>
+  The premise became: what if Professor Oak gave you a computer? OakOS is a love letter to 90s desktop interfaces and the Pokemon universe. It takes the nostalgia of Windows 95 chrome, Game Boy boot screens, and AIM-style messaging and wraps it around a functional card collection tool. Everything is designed to feel like a real OS from 2001 that a Pokemon trainer would actually use.
+</p>
+
+<figure>
+  <img src="pic4.png" alt="OakOS with multiple windows open">
+</figure>
+
+</details>
+
+<details id="apps">
+<summary>Apps</summary>
+
+<table>
+  <tr>
+    <th>App</th>
+    <th>Detail</th>
+  </tr>
+  <tr>
+    <td>Dex</td>
+    <td>Full Pokemon TCG card browser with search, filters, and 3D card rendering</td>
+  </tr>
+  <tr>
+    <td>Binders</td>
+    <td>Collection manager — create custom binders, drag-and-drop sorting</td>
+  </tr>
+  <tr>
+    <td>Messenger</td>
+    <td>AI chat with in-character personas (Oak, Ash, Gary, Team Rocket) via Groq/Llama</td>
+  </tr>
+  <tr>
+    <td>Map</td>
+    <td>Pannable, zoomable Kanto region map</td>
+  </tr>
+  <tr>
+    <td>Music</td>
+    <td>Album player with equalizer visualizer</td>
+  </tr>
+  <tr>
+    <td>trainer_notes.txt</td>
+    <td>Persistent text editor</td>
+  </tr>
+  <tr>
+    <td>Settings</td>
+    <td>Wallpaper, data management</td>
+  </tr>
+  <tr>
+    <td>PokeClock</td>
+    <td>Real-time clock</td>
+  </tr>
+</table>
+
+<figure>
+  <img src="pic2.png" alt="Dex app showing Charizard card">
+</figure>
+
+<figure>
+  <img src="pic3.png" alt="Messenger app — chatting with Prof. Oak">
+</figure>
+
+</details>
+
+<details id="technical">
+<summary>Technical</summary>
+
+<p>
+  The entire app is a single HTML file (~9,000 lines). React 18 is loaded via CDN with Babel transpiling JSX in-browser — no bundler, no build step. Card rendering uses perspective transforms with mouse-tracked tilt, shine, and holographic overlays. The window manager handles drag, resize, minimize, maximize, focus tracking, and z-index stacking. A CRT-style boot sequence plays on load with phosphor green text, scanlines, and glass reflections.
+</p>
+
+<table>
+  <tr>
+    <th>Layer</th>
+    <th>Technology</th>
+  </tr>
+  <tr>
+    <td>Framework</td>
+    <td>React 18 (CDN, in-browser Babel)</td>
+  </tr>
+  <tr>
+    <td>Card data</td>
+    <td>TCGdex API + PokeAPI</td>
+  </tr>
+  <tr>
+    <td>AI chat</td>
+    <td>AWS Lambda proxy → Groq / Llama 3.1</td>
+  </tr>
+  <tr>
+    <td>Storage</td>
+    <td>localStorage, no backend</td>
+  </tr>
+  <tr>
+    <td>Hosting</td>
+    <td>Vercel</td>
+  </tr>
+</table>
+
+</details>
+
+<details id="credits">
+<summary>Credits</summary>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td>Art Direction, Code, Design</td>
+    <td>Lukeabc</td>
+  </tr>
+</table>
+</details>
+
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="../work/index.html">Work</a></li>
+    <li><a href="../information/index.html">Info</a></li>
+</ul>
+
+<script>
+function snapToGrid() {
+  var lh = parseFloat(getComputedStyle(document.body).lineHeight);
+  if (!lh) return;
+  document.querySelectorAll('img, video').forEach(function(el) {
+    el.style.paddingBottom = '';
+    var h = el.getBoundingClientRect().height;
+    if (h <= 0) return;
+    var r = h % lh;
+    if (r > 0.5 && (lh - r) > 0.5)
+      el.style.paddingBottom = (lh - r) + 'px';
+  });
+}
+window.addEventListener('load', snapToGrid);
+window.addEventListener('resize', snapToGrid);
+
+document.querySelector('.debug-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('debug', this.checked);
+});
+document.querySelector('.light-toggle').addEventListener('change', function() {
+  var r = document.documentElement.style;
+  if (this.checked) {
+    r.setProperty('--text-color', '#000');
+    r.setProperty('--text-color-alt', '#555');
+    r.setProperty('--background-color', '#fff');
+    r.setProperty('--background-color-alt', '#f0f0f0');
+  } else {
+    r.removeProperty('--text-color');
+    r.removeProperty('--text-color-alt');
+    r.removeProperty('--background-color');
+    r.removeProperty('--background-color-alt');
+  }
+});
+document.querySelector('.chaos-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('chaos', this.checked);
+});
+</script>
+<script src="../js/chaos.js"></script>
+</body>
+</html>
